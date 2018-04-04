@@ -2,3 +2,8 @@
 .ipynb_checkpoints
 *.pyc
 __pycache__
+*.zip
+*.dat
+*.pickle
+*.pkl
+
