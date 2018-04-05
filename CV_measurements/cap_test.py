@@ -9,6 +9,8 @@ import matplotlib.pyplot as plt
 import pickle
 import time
 import qcodes as qc
+from qcodes.instrument_drivers.stanford_research.SR865 import SR865
+SR1 = SR865('SR1', 'USB0::0xB506::0x2000::003225::INSTR')
 station = qc.Station(SR1)#, Keith_1, Keith_2)
 lockin = SR1
 ampl = lockin.amplitude()
