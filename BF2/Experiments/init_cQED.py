@@ -1,7 +1,10 @@
+### Instrument settings
 import qcodes as qc
 
+
+### Init instruments
 from pytopo.qctools import instruments as instools
-from pytopo.rf.alazar_acquisition import RawAcqCtl, DemodAcqCtl, DemodRelAcqCtl, IQAcqCtl
+from pytopo.rf.alazar_acquisition import RawAcqCtl, DemodAcqCtl, DemodRelAcqCtl, IQRelAcqCtl, IQAcqCtl
 
 inst_list = []
 
@@ -15,8 +18,11 @@ inst_list.append(raw_acq)
 demod_acq = instools.create_inst(DemodAcqCtl, 'demod_acq', 'alazar', force_new_instance=True)
 inst_list.append(demod_acq)
 
-rel_acq = instools.create_inst(DemodRelAcqCtl, 'rel_acq', 'alazar', force_new_instance=True)
-inst_list.append(rel_acq)
+demodrel_acq = instools.create_inst(DemodRelAcqCtl, 'rel_acq', 'alazar', force_new_instance=True)
+inst_list.append(demodrel_acq)
+
+iqrel_acq = instools.create_inst(IQRelAcqCtl, 'iqrel_acq', 'alazar', force_new_instance=True)
+inst_list.append(iqrel_acq)
 
 iq_acq = instools.create_inst(IQAcqCtl, 'iq_acq', 'alazar', force_new_instance=True)
 inst_list.append(iq_acq)
