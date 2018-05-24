@@ -32,11 +32,15 @@ awg5014 = instools.create_inst(Tektronix_AWG5014, 'awg5014', address="TCPIP0::16
 inst_list.append(awg5014)
 
 from qcodes.instrument_drivers.rohde_schwarz.SGS100A import RohdeSchwarz_SGS100A
-LO = instools.create_inst(RohdeSchwarz_SGS100A, 'RF', address="TCPIP0::169.254.2.20")
+LO = instools.create_inst(RohdeSchwarz_SGS100A, 'LO', address="TCPIP0::169.254.2.20")
 inst_list.append(LO)
-RF = instools.create_inst(RohdeSchwarz_SGS100A, 'LO', address="TCPIP0::169.254.231.38")
+RF = instools.create_inst(RohdeSchwarz_SGS100A, 'RF', address="TCPIP0::169.254.231.38")
 inst_list.append(RF)
 qubit_gen = instools.create_inst(RohdeSchwarz_SGS100A, 'qubit_gen', address="TCPIP0::169.254.167.18")
 inst_list.append(qubit_gen)
+
+from qcodes.instrument_drivers.yokogawa.GS200 import GS200
+yoko = instools.create_inst(GS200, 'yoko', address="TCPIP0::169.254.1.9::inst0::INSTR")
+inst_list.append(yoko)
 
 station = qc.Station(*inst_list)
